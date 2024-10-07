@@ -1,0 +1,53 @@
+Task 1: Anomaly detection
+
+In the "estimate_gaussian" function, I calculated the mean vector and the 
+variance matrix. For the vector, I iterated over each column of the 
+input matrix and computed the sum of its elements. For the variance 
+matrix, I subtracted the mean vector from each row of the matrix. 
+In the "multivariate_gaussian" function, I computed the probability 
+vector by iterating through the matrix row by row using a for-loop. 
+In the "check_predictions" function, I calculated the true positives 
+(if both the prediction and truths are 1), false positives 
+(if the prediction is 1 and truths are 0), and false negatives 
+(if the prediction is 0 and truths are 1). In the "optimal_treshold" 
+function, I iterated through the probability vector with a step 'epsilon'. 
+During each iteration, I built the probability vector, then calculated the 
+number of false positives, true positives, and false negatives.
+At the end, I return the best epsilon along with other parameters.
+
+Task 2: Kernel regression
+
+In the functions linear_kernel, polynomial_kernel, and gaussian_kernel, 
+I calculated each type of kernel using the dots() and norm() functions 
+to compute dot products and vector norms. For the "build_kernel" function,
+I first implemented the "split_dataset" function, where I created 4 vectors.
+In the training vectors, I copied the first percentage * num_rows from 
+X and y, while in the test vectors I copied the last 
+percentage * num_rows - 1 from X and y. In the "cholesky" function, I calculated
+the L matrix using the Cholesky decomposition (from the lab session), 
+and in the "get_lower_inverse" function, I calculated the inverse. 
+In the "get_prediction_params" function, I computed the parameter 
+estimates vector using the formula given in the assignment. In the 
+"conjugate_gradient" function, I implemented the conjugate gradient 
+method, which I also applied in the "get_prediction_params_iterative" 
+function. Finally, to calculate the prediction for the input data, 
+I applied the function 'f' to each row of the X matrix. The result 
+returned by the function is multiplied by the a(i) element, and then I sum them up.
+
+Task 3: Stochastic text generation
+
+To return the sorted words without duplicates, in the "distinct_words" 
+function I used the 'unique' function to accomplish this. In the "k_secv"
+function, I declared a column vector B. I iterated through A up to 
+the last sequence, and at each step, I declared an initially empty 
+string, concatenating k elements from A. In the end, I placed each 
+sequence in each row of B. In the "distinct_k_secv" function, I again 
+used the 'unique' function to solve the problem. In the "word_idx" 
+function, I built a vector where at position i, I put the number i. 
+I then used the containers.Map function to assign each element from 
+distinct_wds its corresponding index. I followed the same approach 
+for the "k_secv_idx" function. In the "stochastic_matrix" function, 
+I iterated through the corpus until the last sequence and constructed
+an auxiliary string for the k-length sequence. To find the necessary 
+indices, I used the find function and incremented the value at the 
+found positions by 1.
